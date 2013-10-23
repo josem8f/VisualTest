@@ -73,11 +73,17 @@
                 fill:none;
             }
 
+            text{
+                font-size: 12px;
+            }
+
         </style>
 
-        <script src="d3.v3.js" ></script>
+        <script src="./js/libs/jquery/jquery.js" ></script>
+        <script src="./js/libs/d3/d3.js" ></script>
 
 
+        <script src="./js/init.js" ></script>
         <script src="index.js"></script>
         <script src="TimeLine.js"></script>
         <script src="Gantt.js"></script>
@@ -88,101 +94,33 @@
     <body>
 
         <script type="text/javascript">
-//index init
-            eventTypes = d3.nest()
-                    .key(function(d) {
-                return d.eventType;
-            })
-                    .rollup(function(d) {
-                return d[0].eventType;
-            })
-                    .map(indexData);
 
-// d3.keys(locations).forEach(function (d, i) { locations[d] = i; })
+            $(function() {
 
-            locations = d3.nest()
-                    .key(function(d) {
-                return d.localization;
-            })
-                    .rollup(function(d) {
-                return d[0].localization;
-            })
-                    .map(indexData);
 
-            indexData = d3.nest()
-                    .key(function(d) {
-                return d.ID;
-            })
-                    .rollup(function(d) {
-                return d[0];
-            })
-                    .map(indexData);
+                Init.initConstants();
 
-            colorInterp = d3.scale.category10().domain(d3.keys(locations));
+                //indexData is in index.js
+                indexData = Init.prepareIndex(indexData);
 
-            d3.keys(locations).forEach(function(d) {
-                locations[d] = colorInterp(d);
+                draw();
+
             });
 
-            function prepareData(dat)
-            {
-                dat.forEach(function(d)
-                {
-                    //console.log(typeof d.startTime);
-                    d.ID = parseInt(d.ID);
-                    d.startTime = new Date(d.startTime);
-                    d.duration = parseInt(d.duration);
-                    d.endTime = new Date(d.startTime);
-                    d.endTime.setMinutes(d.endTime.getMinutes() + d.duration)
-                });
-
-                dat.sort(function(a, b) {
-                    d3.ascending(a, b);
-                });
-
-                return dat;
-            }
-
-            var dataMin = null;
-            var dataMax = null;
 
         </script>
         <script>
 
 
-            var width = 600;
-            var height = 600;
 
-            var numTicks = 6;
-
-            var svgPadding = 20;
-
-            var leftPadding = 70 + svgPadding,
-                    rightPadding = 0 + svgPadding,
-                    topPadding = 0 + svgPadding,
-                    bottomPadding = 5 + svgPadding;
-
-            var drawableAreaWidthHeight = [width - 2 * svgPadding, height - 2 * svgPadding];
-
-            /*
-             var drawableAreaCenters = drawableAreaWidthHeight.map(function(d){return d3.round(d/2)});
-             
-             drawableAreaCenters[0] += leftPadding;
-             drawableAreaCenters[1] += topPadding;
-             */
-            var drawableAreaCenters = [d3.round((width) / 2), d3.round((height) / 2)];
-
-
-            var tickSiz = 6;
-
-            var blockHeight = 20;
 
         </script>
 
         <script type="text/javascript" >
-            var leyenda, leyendaTipos;
-            //http://mbostock.github.io/d3/tutorial/bar-1.html
-            window.onload = function() {
+
+            function draw() {
+                var leyenda, leyendaTipos;
+                //http://mbostock.github.io/d3/tutorial/bar-1.html
 
                 leyenda = d3.select("#leyenda");
 
@@ -194,8 +132,8 @@
                         .append("div")
                         .attr("class", "cuadrosLeyendas")
                         .attr("style", function(d) {
-                    return "background:" + locations[d] + ";"
-                });
+                            return "background:" + locations[d] + ";"
+                        });
 
                 leyenda.selectAll(".leyendas")
                         .data(d3.keys(locations))
@@ -204,11 +142,11 @@
 
 
                         .text(function(d) {
-                    return d;
-                })
+                            return d;
+                        })
                         .attr("style", function(d) {
-                    return "color:" + locations[d] + ";";
-                });
+                            return "color:" + locations[d] + ";";
+                        });
 
 
                 var data = [{startTime: new Date("2009-10-19T14:25:00"), duration: 19, ID: 5}
@@ -233,7 +171,7 @@
 
                 //data init
 
-                data = prepareData(data);
+                data = Init.prepareData(data);
 
                 dataMin = d3.min(data, function(d)
                 {
@@ -244,7 +182,9 @@
                     return d.endTime;
                 });
 
-                TimeLine.print(data, indexData);
+                var parentDiv = d3.select('#draws');
+
+                TimeLine.print(data, indexData, parentDiv, dataMin, dataMax);
 
 
                 var data = [{startTime: new Date("2009-10-19T14:25:00"), duration: 19, ID: 5}
@@ -269,7 +209,7 @@
 
                 //data init
 
-                data = prepareData(data);
+                data = Init.prepareData(data);
 
                 dataMin = d3.min(data, function(d)
                 {
@@ -280,7 +220,7 @@
                     return d.endTime;
                 });
 
-                Gantt.print(data, indexData);
+                Gantt.print(data, indexData, parentDiv, dataMin, dataMax);
 
 
                 var data = [{startTime: new Date("2009-10-19T14:25:00"), duration: 19, ID: 5}
@@ -305,7 +245,7 @@
 
                 //data init
 
-                data = prepareData(data);
+                data = Init.prepareData(data);
 
                 dataMin = d3.min(data, function(d)
                 {
@@ -316,7 +256,7 @@
                     return d.endTime;
                 });
 
-                Spiral.print(data, indexData);
+                Spiral.print(data, indexData, parentDiv, dataMin, dataMax);
 
                 var data = [{startTime: new Date("2009-10-19T14:25:00"), duration: 19, ID: 5}
                     , {startTime: new Date("2009-10-19T14:25:00"), duration: 2, ID: 1}
@@ -340,7 +280,7 @@
 
                 //data init
 
-                data = prepareData(data);
+                data = Init.prepareData(data);
 
                 dataMin = d3.min(data, function(d)
                 {
@@ -351,23 +291,24 @@
                     return d.endTime;
                 });
 
-                Mat.print(data, indexData);
-            };
+                Mat.print(data, indexData, parentDiv, dataMin, dataMax);
 
+            }
         </script>
 
         <div id ="leyenda">
 
         </div>
-        <div id="timeline">
-        </div>
+        <div id="draws">
+            <div id="timeline">
+            </div>
 
-        <div id="spiral">
-        </div>
+            <div id="spiral">
+            </div>
 
-        <div id="mat">
+            <div id="mat">
+            </div>
         </div>
-
 
     </body>
 </html>

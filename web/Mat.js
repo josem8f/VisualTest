@@ -1,6 +1,6 @@
 var Mat = {
     innerRadius: 15,
-    svg: {},
+    svgCanvas: {},
     axes: {},
     timeAxis: {},
     timeRange: {},
@@ -90,7 +90,7 @@ var Mat = {
 
         return path;
     },
-    print: function(data)
+    print: function(data, indexData, parentDiv, dataMin, dataMax)
     {
 
         this.timeRange = d3.time.scale()
@@ -106,16 +106,16 @@ var Mat = {
                 .domain(d3.merge([d3.keys(locations), [""]]))
                 .rangePoints([0, 360]);
 
-        this.svg = d3.selectAll('#mat')
+        this.svgCanvas = parentDiv.select('#mat')
                 .append('svg')
                 .attr('class', 'canvas')
                 .attr('width', width)
                 .attr('height', height);
 
-        this.svg = this.svg.append('g')
+        this.svgCanvas = this.svgCanvas.append('g')
                 .attr('transform', 'translate(' + drawableAreaCenters[0] + ',' + drawableAreaCenters[1] + ')');
 
-        this.axes = this.svg.append('g')
+        this.axes = this.svgCanvas.append('g')
                 .attr('id', 'axes');
 
         this.axes.selectAll('.axis')
@@ -133,7 +133,7 @@ var Mat = {
                 .attr('style', 'stroke: black;stroke-dasharray: none; stroke-opacity:1;');
 
 
-        var linkLines = this.svg.append('g')
+        var linkLines = this.svgCanvas.append('g')
                 .attr('id', 'linkLines');
 
         links = this.createLinks(data);
@@ -148,7 +148,7 @@ var Mat = {
         })
                 .attr('d', this.pathLinks);
 
-        var intervals = this.svg.append('g')
+        var intervals = this.svgCanvas.append('g')
                 .attr('id', 'intervals');
 
 

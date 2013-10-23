@@ -6,3 +6,5 @@
 *.ear
 /nbproject/private/
 /build/
+/dist/
+/log-files/

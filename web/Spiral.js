@@ -1,8 +1,8 @@
 var Spiral = {
     numAxes : 8,
-    svg: '',
+    svgCanvas : {},
     axes: '',
-    print: function(data, index)
+    print: function(data, indexData, parentDiv, dataMin, dataMax)
     {
         //http://csdt.rpi.edu/na/shoban/polar/polar.html
 
@@ -29,16 +29,16 @@ var Spiral = {
             return d;
         });
 
-        this.svg = d3.selectAll('#spiral')
+        this.svgCanvas = parentDiv.select('#spiral')
                 .append('svg')
                 .attr('class', 'canvas')
                 .attr('width', width)
                 .attr('height', height);
 
-        this.svg = this.svg.append('g')
+        this.svgCanvas = this.svgCanvas.append('g')
                 .attr('transform', 'translate(' + drawableAreaCenters[0] + ',' + drawableAreaCenters[1] + ')');
 
-        this.axes = this.svg.append('g')
+        this.axes = this.svgCanvas.append('g')
                 .attr('id', 'axes');
 
         this.axes.selectAll('.axis')
@@ -59,7 +59,7 @@ var Spiral = {
         .attr('r', timeRange);
 
 
-        this.svg.append('g')
+        this.svgCanvas.append('g')
                 .attr('style', 'stroke-width:' + blockHeight + 'px;')
                 .selectAll('.dataSpiral')
                 .data(data)

@@ -1,4 +1,4 @@
-var indexData = [{ID : 1, eventType : "PRESS", localization : "Salon0"}
+indexData = [{ID : 1, eventType : "PRESS", localization : "Salon0"}
 ,{ID : 2, eventType : "MOVE", localization : "Pasillo0"}
 ,{ID : 3, eventType : "isOPENDOOR", localization : "Pasillo0"}
 ,{ID : 4, eventType : "MOVE", localization : "Dormitorio0"}
