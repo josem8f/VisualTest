@@ -9,7 +9,7 @@ var Init = {
 
         numTicks = 6;
 
-        svgPadding = 20;
+        svgPadding = 35;
 
         leftPadding = 70 + svgPadding;
         rightPadding = 0 + svgPadding;
@@ -71,12 +71,19 @@ var Init = {
     {
         dat.forEach(function(d)
         {
+//            console.log(d);
             //console.log(typeof d.startTime);
             d.ID = parseInt(d.ID);
             d.startTime = new Date(d.startTime);
             d.duration = parseInt(d.duration);
             d.endTime = new Date(d.startTime);
-            d.endTime.setMinutes(d.endTime.getMinutes() + d.duration)
+            //d.endTime.setMinutes(d.endTime.getMinutes() + d.duration);
+            d.endTime.setSeconds(d.endTime.getSeconds() + d.duration );
+            
+//            console.log(d);
+//            console.log(d.endTime.getSeconds());
+//            console.log(d.duration);
+            
         });
 
         dat.sort(function(a, b) {

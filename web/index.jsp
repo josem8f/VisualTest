@@ -11,6 +11,24 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
         <style type="text/css" >
+            
+            
+
+            .gantt .xaxis text {
+                position: relative;
+                top: 5px;
+            }
+            
+            
+            .mat .axis text {
+                left: 8px;
+                position: relative;
+                top: 6px;
+            }
+
+            #draws div {
+                display: inline-block;
+            }
 
             .canvas {
                 border-color: -moz-use-text-color;
@@ -92,6 +110,24 @@
 
     </head>
     <body>
+        <div id ="leyenda">
+
+        </div>
+        <div id="draws">
+            <div class="timeline">
+            </div>
+
+            <div class="gantt">
+            </div>
+
+            <div class="spiral">
+            </div>
+
+            <div class="mat">
+            </div>
+        </div>
+
+
 
         <script type="text/javascript">
 
@@ -109,12 +145,13 @@
 
 
         </script>
-        <script>
 
 
 
 
-        </script>
+
+
+
 
         <script type="text/javascript" >
 
@@ -149,24 +186,24 @@
                         });
 
 
-                var data = [{startTime: new Date("2009-10-19T14:25:00"), duration: 19, ID: 5}
-                    , {startTime: new Date("2009-10-19T14:25:00"), duration: 2, ID: 1}
-                    , {startTime: new Date("2009-10-19T14:30:00"), duration: 7, ID: 2}
-                    , {startTime: new Date("2009-10-19T14:35:00"), duration: 2, ID: 3}
-                    , {startTime: new Date("2009-10-19T14:40:00"), duration: 2, ID: 4}
-                    , {startTime: new Date("2009-10-19T14:45:00"), duration: 7, ID: 5}
-                    , {startTime: new Date("2009-10-19T14:50:00"), duration: 2, ID: 6}
-                    , {startTime: new Date("2009-10-19T14:55:00"), duration: 3, ID: 7}
-                    , {startTime: new Date("2009-10-19T15:00:00"), duration: 2, ID: 8}
-                    , {startTime: new Date("2009-10-19T15:05:00"), duration: 5, ID: 1}
-                    , {startTime: new Date("2009-10-19T15:10:00"), duration: 2, ID: 2}
-                    , {startTime: new Date("2009-10-19T15:15:00"), duration: 2, ID: 3}
-                    , {startTime: new Date("2009-10-19T15:20:00"), duration: 4, ID: 4}
-                    , {startTime: new Date("2009-10-19T15:25:00"), duration: 2, ID: 5}
-                    , {startTime: new Date("2009-10-19T15:30:00"), duration: 4, ID: 6}
-                    , {startTime: new Date("2009-10-19T15:35:00"), duration: 2, ID: 7}
-                    , {startTime: new Date("2009-10-19T15:40:00"), duration: 2, ID: 8}
-                    , {startTime: new Date("2009-10-19T15:45:00"), duration: 2, ID: 5}
+                var data = [{startTime: new Date("2009-10-19T14:25:00"), duration: 60 *19, ID: 5}
+                    , {startTime: new Date("2009-10-19T14:25:00"), duration: 60 *2, ID: 1}
+                    , {startTime: new Date("2009-10-19T14:30:00"), duration: 60 *7, ID: 2}
+                    , {startTime: new Date("2009-10-19T14:35:00"), duration: 60 *2, ID: 3}
+                    , {startTime: new Date("2009-10-19T14:40:00"), duration: 60 *2, ID: 4}
+                    , {startTime: new Date("2009-10-19T14:45:00"), duration: 60 *7, ID: 5}
+                    , {startTime: new Date("2009-10-19T14:50:00"), duration: 60 *2, ID: 6}
+                    , {startTime: new Date("2009-10-19T14:55:00"), duration: 60 *3, ID: 7}
+                    , {startTime: new Date("2009-10-19T15:00:00"), duration: 60 *2, ID: 8}
+                    , {startTime: new Date("2009-10-19T15:05:00"), duration: 60 *5, ID: 1}
+                    , {startTime: new Date("2009-10-19T15:10:00"), duration: 60 *2, ID: 2}
+                    , {startTime: new Date("2009-10-19T15:15:00"), duration: 60 *2, ID: 3}
+                    , {startTime: new Date("2009-10-19T15:20:00"), duration: 60 *4, ID: 4}
+                    , {startTime: new Date("2009-10-19T15:25:00"), duration: 60 *2, ID: 5}
+                    , {startTime: new Date("2009-10-19T15:30:00"), duration: 60 *4, ID: 6}
+                    , {startTime: new Date("2009-10-19T15:35:00"), duration: 60 *2, ID: 7}
+                    , {startTime: new Date("2009-10-19T15:40:00"), duration: 60 *2, ID: 8}
+                    , {startTime: new Date("2009-10-19T15:45:00"), duration: 60 *2, ID: 5}
                 ];
 
                 //data init
@@ -187,24 +224,24 @@
                 TimeLine.print(data, indexData, parentDiv, dataMin, dataMax);
 
 
-                var data = [{startTime: new Date("2009-10-19T14:25:00"), duration: 19, ID: 5}
-                    , {startTime: new Date("2009-10-19T14:25:00"), duration: 2, ID: 1}
-                    , {startTime: new Date("2009-10-19T14:30:00"), duration: 7, ID: 2}
-                    , {startTime: new Date("2009-10-19T14:35:00"), duration: 2, ID: 3}
-                    , {startTime: new Date("2009-10-19T14:40:00"), duration: 2, ID: 4}
-                    , {startTime: new Date("2009-10-19T14:45:00"), duration: 7, ID: 5}
-                    , {startTime: new Date("2009-10-19T14:50:00"), duration: 2, ID: 6}
-                    , {startTime: new Date("2009-10-19T14:55:00"), duration: 3, ID: 7}
-                    , {startTime: new Date("2009-10-19T15:00:00"), duration: 2, ID: 8}
-                    , {startTime: new Date("2009-10-19T15:05:00"), duration: 5, ID: 1}
-                    , {startTime: new Date("2009-10-19T15:10:00"), duration: 2, ID: 2}
-                    , {startTime: new Date("2009-10-19T15:15:00"), duration: 2, ID: 3}
-                    , {startTime: new Date("2009-10-19T15:20:00"), duration: 4, ID: 4}
-                    , {startTime: new Date("2009-10-19T15:25:00"), duration: 2, ID: 5}
-                    , {startTime: new Date("2009-10-19T15:30:00"), duration: 4, ID: 6}
-                    , {startTime: new Date("2009-10-19T15:35:00"), duration: 2, ID: 7}
-                    , {startTime: new Date("2009-10-19T15:40:00"), duration: 2, ID: 8}
-                    , {startTime: new Date("2009-10-19T15:45:00"), duration: 2, ID: 5}
+                var data = [{startTime: new Date("2009-10-19T14:25:00"), duration: 60 *19, ID: 5}
+                    , {startTime: new Date("2009-10-19T14:25:00"), duration: 60 *2, ID: 1}
+                    , {startTime: new Date("2009-10-19T14:30:00"), duration: 60 *7, ID: 2}
+                    , {startTime: new Date("2009-10-19T14:35:00"), duration: 60 *2, ID: 3}
+                    , {startTime: new Date("2009-10-19T14:40:00"), duration: 60 *2, ID: 4}
+                    , {startTime: new Date("2009-10-19T14:45:00"), duration: 60 *7, ID: 5}
+                    , {startTime: new Date("2009-10-19T14:50:00"), duration: 60 *2, ID: 6}
+                    , {startTime: new Date("2009-10-19T14:55:00"), duration: 60 *3, ID: 7}
+                    , {startTime: new Date("2009-10-19T15:00:00"), duration: 60 *2, ID: 8}
+                    , {startTime: new Date("2009-10-19T15:05:00"), duration: 60 *5, ID: 1}
+                    , {startTime: new Date("2009-10-19T15:10:00"), duration: 60 *2, ID: 2}
+                    , {startTime: new Date("2009-10-19T15:15:00"), duration: 60 *2, ID: 3}
+                    , {startTime: new Date("2009-10-19T15:20:00"), duration: 60 *4, ID: 4}
+                    , {startTime: new Date("2009-10-19T15:25:00"), duration: 60 *2, ID: 5}
+                    , {startTime: new Date("2009-10-19T15:30:00"), duration: 60 *4, ID: 6}
+                    , {startTime: new Date("2009-10-19T15:35:00"), duration: 60 *2, ID: 7}
+                    , {startTime: new Date("2009-10-19T15:40:00"), duration: 60 *2, ID: 8}
+                    , {startTime: new Date("2009-10-19T15:45:00"), duration: 60 *2, ID: 5}
                 ];
 
                 //data init
@@ -223,24 +260,24 @@
                 Gantt.print(data, indexData, parentDiv, dataMin, dataMax);
 
 
-                var data = [{startTime: new Date("2009-10-19T14:25:00"), duration: 19, ID: 5}
-                    , {startTime: new Date("2009-10-19T14:25:00"), duration: 2, ID: 1}
-                    , {startTime: new Date("2009-10-19T14:30:00"), duration: 7, ID: 2}
-                    , {startTime: new Date("2009-10-19T14:35:00"), duration: 2, ID: 3}
-                    , {startTime: new Date("2009-10-19T14:40:00"), duration: 2, ID: 4}
-                    , {startTime: new Date("2009-10-19T14:45:00"), duration: 7, ID: 5}
-                    , {startTime: new Date("2009-10-19T14:50:00"), duration: 2, ID: 6}
-                    , {startTime: new Date("2009-10-19T14:55:00"), duration: 3, ID: 7}
-                    , {startTime: new Date("2009-10-19T15:00:00"), duration: 2, ID: 8}
-                    , {startTime: new Date("2009-10-19T15:05:00"), duration: 5, ID: 1}
-                    , {startTime: new Date("2009-10-19T15:10:00"), duration: 2, ID: 2}
-                    , {startTime: new Date("2009-10-19T15:15:00"), duration: 2, ID: 3}
-                    , {startTime: new Date("2009-10-19T15:20:00"), duration: 4, ID: 4}
-                    , {startTime: new Date("2009-10-19T15:25:00"), duration: 2, ID: 5}
-                    , {startTime: new Date("2009-10-19T15:30:00"), duration: 4, ID: 6}
-                    , {startTime: new Date("2009-10-19T15:35:00"), duration: 2, ID: 7}
-                    , {startTime: new Date("2009-10-19T15:40:00"), duration: 2, ID: 8}
-                    , {startTime: new Date("2009-10-19T15:45:00"), duration: 2, ID: 5}
+                var data = [{startTime: new Date("2009-10-19T14:25:00"), duration: 60 *19, ID: 5}
+                    , {startTime: new Date("2009-10-19T14:25:00"), duration: 60 *2, ID: 1}
+                    , {startTime: new Date("2009-10-19T14:30:00"), duration: 60 *7, ID: 2}
+                    , {startTime: new Date("2009-10-19T14:35:00"), duration: 60 *2, ID: 3}
+                    , {startTime: new Date("2009-10-19T14:40:00"), duration: 60 *2, ID: 4}
+                    , {startTime: new Date("2009-10-19T14:45:00"), duration: 60 *7, ID: 5}
+                    , {startTime: new Date("2009-10-19T14:50:00"), duration: 60 *2, ID: 6}
+                    , {startTime: new Date("2009-10-19T14:55:00"), duration: 60 *3, ID: 7}
+                    , {startTime: new Date("2009-10-19T15:00:00"), duration: 60 *2, ID: 8}
+                    , {startTime: new Date("2009-10-19T15:05:00"), duration: 60 *5, ID: 1}
+                    , {startTime: new Date("2009-10-19T15:10:00"), duration: 60 *2, ID: 2}
+                    , {startTime: new Date("2009-10-19T15:15:00"), duration: 60 *2, ID: 3}
+                    , {startTime: new Date("2009-10-19T15:20:00"), duration: 60 *4, ID: 4}
+                    , {startTime: new Date("2009-10-19T15:25:00"), duration: 60 *2, ID: 5}
+                    , {startTime: new Date("2009-10-19T15:30:00"), duration: 60 *4, ID: 6}
+                    , {startTime: new Date("2009-10-19T15:35:00"), duration: 60 *2, ID: 7}
+                    , {startTime: new Date("2009-10-19T15:40:00"), duration: 60 *2, ID: 8}
+                    , {startTime: new Date("2009-10-19T15:45:00"), duration: 60 *2, ID: 5}
                 ];
 
                 //data init
@@ -258,24 +295,24 @@
 
                 Spiral.print(data, indexData, parentDiv, dataMin, dataMax);
 
-                var data = [{startTime: new Date("2009-10-19T14:25:00"), duration: 19, ID: 5}
-                    , {startTime: new Date("2009-10-19T14:25:00"), duration: 2, ID: 1}
-                    , {startTime: new Date("2009-10-19T14:30:00"), duration: 7, ID: 2}
-                    , {startTime: new Date("2009-10-19T14:35:00"), duration: 2, ID: 3}
-                    , {startTime: new Date("2009-10-19T14:40:00"), duration: 2, ID: 4}
-                    , {startTime: new Date("2009-10-19T14:45:00"), duration: 7, ID: 5}
-                    , {startTime: new Date("2009-10-19T14:50:00"), duration: 2, ID: 6}
-                    , {startTime: new Date("2009-10-19T14:55:00"), duration: 3, ID: 7}
-                    , {startTime: new Date("2009-10-19T15:00:00"), duration: 2, ID: 8}
-                    , {startTime: new Date("2009-10-19T15:05:00"), duration: 5, ID: 1}
-                    , {startTime: new Date("2009-10-19T15:10:00"), duration: 2, ID: 2}
-                    , {startTime: new Date("2009-10-19T15:15:00"), duration: 2, ID: 3}
-                    , {startTime: new Date("2009-10-19T15:20:00"), duration: 4, ID: 4}
-                    , {startTime: new Date("2009-10-19T15:25:00"), duration: 2, ID: 5}
-                    , {startTime: new Date("2009-10-19T15:30:00"), duration: 4, ID: 6}
-                    , {startTime: new Date("2009-10-19T15:35:00"), duration: 2, ID: 7}
-                    , {startTime: new Date("2009-10-19T15:40:00"), duration: 2, ID: 8}
-                    , {startTime: new Date("2009-10-19T15:45:00"), duration: 2, ID: 5}
+                var data = [{startTime: new Date("2009-10-19T14:25:00"), duration: 60 *19, ID: 5}
+                    , {startTime: new Date("2009-10-19T14:25:00"), duration: 60 *2, ID: 1}
+                    , {startTime: new Date("2009-10-19T14:30:00"), duration: 60 *7, ID: 2}
+                    , {startTime: new Date("2009-10-19T14:35:00"), duration: 60 *2, ID: 3}
+                    , {startTime: new Date("2009-10-19T14:40:00"), duration: 60 *2, ID: 4}
+                    , {startTime: new Date("2009-10-19T14:45:00"), duration: 60 *7, ID: 5}
+                    , {startTime: new Date("2009-10-19T14:50:00"), duration: 60 *2, ID: 6}
+                    , {startTime: new Date("2009-10-19T14:55:00"), duration: 60 *3, ID: 7}
+                    , {startTime: new Date("2009-10-19T15:00:00"), duration: 60 *2, ID: 8}
+                    , {startTime: new Date("2009-10-19T15:05:00"), duration: 60 *5, ID: 1}
+                    , {startTime: new Date("2009-10-19T15:10:00"), duration: 60 *2, ID: 2}
+                    , {startTime: new Date("2009-10-19T15:15:00"), duration: 60 *2, ID: 3}
+                    , {startTime: new Date("2009-10-19T15:20:00"), duration: 60 *4, ID: 4}
+                    , {startTime: new Date("2009-10-19T15:25:00"), duration: 60 *2, ID: 5}
+                    , {startTime: new Date("2009-10-19T15:30:00"), duration: 60 *4, ID: 6}
+                    , {startTime: new Date("2009-10-19T15:35:00"), duration: 60 *2, ID: 7}
+                    , {startTime: new Date("2009-10-19T15:40:00"), duration: 60 *2, ID: 8}
+                    , {startTime: new Date("2009-10-19T15:45:00"), duration: 60 *2, ID: 5}
                 ];
 
                 //data init
@@ -296,19 +333,7 @@
             }
         </script>
 
-        <div id ="leyenda">
 
-        </div>
-        <div id="draws">
-            <div id="timeline">
-            </div>
-
-            <div id="spiral">
-            </div>
-
-            <div id="mat">
-            </div>
-        </div>
 
     </body>
 </html>

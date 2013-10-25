@@ -29,7 +29,7 @@ var Spiral = {
             return d;
         });
 
-        this.svgCanvas = parentDiv.select('#spiral')
+        this.svgCanvas = parentDiv.select('.spiral')
                 .append('svg')
                 .attr('class', 'canvas')
                 .attr('width', width)
@@ -58,6 +58,9 @@ var Spiral = {
         .attr('cy', 0)
         .attr('r', timeRange);
 
+        this.axes.selectAll('text')
+                .attr('x', '18')
+                .attr('y', '12');        
 
         this.svgCanvas.append('g')
                 .attr('style', 'stroke-width:' + blockHeight + 'px;')

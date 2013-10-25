@@ -1,6 +1,6 @@
 var TimeLine = {
     svgCanvas: {},
-    print: function(data, indexData, parentDiv, dataMin, dataMax) {
+    print: function(data, indexData, parentDiv, dataMin, dataMax) {        
 
         var xRange = d3.time.scale()
                 .domain([dataMin, dataMax])
@@ -8,7 +8,7 @@ var TimeLine = {
 
         var xAxis = d3.svg.axis().scale(xRange).ticks(5);
 
-        this.svgCanvas = parentDiv.select('#timeline')
+        this.svgCanvas = parentDiv.select('.timeline')
                 .append('svg')
                 .attr('class', 'canvas')
                 .attr("width", width)
