@@ -73,12 +73,17 @@ var Init = {
         {
 //            console.log(d);
             //console.log(typeof d.startTime);
-            d.ID = parseInt(d.ID);
             d.startTime = new Date(d.startTime);
-            d.duration = parseInt(d.duration);
             d.endTime = new Date(d.startTime);
-            //d.endTime.setMinutes(d.endTime.getMinutes() + d.duration);
+            d.duration = parseInt(d.duration);
             d.endTime.setSeconds(d.endTime.getSeconds() + d.duration );
+            
+            
+            d.ID = parseInt(d.ID);
+            
+            
+            //d.endTime.setMinutes(d.endTime.getMinutes() + d.duration);
+            
             
 //            console.log(d);
 //            console.log(d.endTime.getSeconds());
@@ -87,7 +92,31 @@ var Init = {
         });
 
         dat.sort(function(a, b) {
-            d3.ascending(a, b);
+            if (a.startTime < b.startTime)
+            {
+                return -1;
+            }else if (a.startTime > b.startTime)
+            {
+                return 1;
+            }else if (a.endTime < b.endTime)
+            {
+                return -1;
+            } else if (a.endTime > b.endTime)
+            {
+                return 1;
+            }
+            else if (a.ID < b.ID)
+            {
+                return -1;
+            }
+            else if (a.ID > b.ID)
+            {
+                return 1;
+            }
+            
+            return 0;
+            
+            
         });
 
         return dat;
