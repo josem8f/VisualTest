@@ -39,7 +39,7 @@ var TimeLine = {
         });
 
         var drawnXAxis = this.svgCanvas.append("g")
-                .attr("id", "xaxis")
+                .attr("class", "xaxis")
                 .call(xAxis);
 
     }

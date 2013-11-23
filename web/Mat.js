@@ -11,7 +11,7 @@ var Mat = {
         var links = [];
 
         for (i = 0; i + 1 < data.length; i++) {
-            console.log('i: ' + i);
+//            console.log('i: ' + i);
             var local1 = indexData[  data[i].ID ].localization;
             var linkStarts = i;
 //          aka linkEnds
@@ -20,7 +20,7 @@ var Mat = {
 
 //          looking forward for links
             for (; j < data.length; j++) {
-                console.log('j: ' + j);
+//                console.log('j: ' + j);
 
                 local2 = indexData[ data[ j ].ID ].localization;
 
@@ -51,9 +51,9 @@ var Mat = {
 
             i = j - 1;
 
-            console.log(link);
+//            console.log(link);
 
-            console.log('end')
+//            console.log('end');
         }
 
         return links;
@@ -154,7 +154,7 @@ var Mat = {
 
 
         this.caption = this.axes.append("g")
-                .attr("id", "caption");
+                .attr("class", "caption");
 
         var xPositionFunction = function(captionPosition)
         {

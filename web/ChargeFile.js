@@ -47,8 +47,8 @@ function handleDataSelect (evt)
 
 function loadIndex (event)
 {
-    console.log(event.target);
-    console.log(reader);
+//    console.log(event.target);
+//    console.log(reader);
                         
     indexData = d3.csv.parse(event.target.result);
 
@@ -127,7 +127,7 @@ function loadData (file)
 
         };
 
-        console.log(data);
+//        console.log(data);
         
         Aux.createLinks(data[file.name]);
         

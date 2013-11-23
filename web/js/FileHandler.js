@@ -85,7 +85,7 @@ var FileHandler = {
 
             thisData = Init.prepareData(thisData);
 
-            console.log(thisData);
+//            console.log(thisData);
 
             dataMin = d3.min(thisData, function(d)
             {

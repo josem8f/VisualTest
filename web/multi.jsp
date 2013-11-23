@@ -11,24 +11,24 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
         <style type="text/css" >
-
-            .gantt .xaxis text {
-                position: relative;
-                top: 5px;
-            }
-
-            .mat .axis text {
-                left: 8px;
-                position: relative;
-                top: 6px;
-            }
-
-            .spiral .axis text {
-                left: 19px;
-                position: relative;
-            }
-
-            #draws > div > div {
+            /*
+                        .gantt .xaxis text {
+                            position: relative;
+                            top: 5px;
+                        }
+            
+                        .mat .axis text {
+                            left: 8px;
+                            position: relative;
+                            top: 6px;
+                        }
+            
+                        .spiral .axis text {
+                            left: 19px;
+                            position: relative;
+                        }
+            
+            */        #draws > div > div {
                 display: inline-block;
             }
 
@@ -56,6 +56,7 @@
                 stroke: black;
                 stroke-width: 0.75;
             }
+
             .leyendas div {
                 display: inline-block;
             }
@@ -65,13 +66,12 @@
                 width: 10px;
                 height: 10px;
                 margin: 0px 10px;
-
             }
+
             #axes > .axis:not(:first-child) .tick text
             {
                 visibility: hidden;
             }
-
 
             .dataSpiral {
                 fill: none;
@@ -123,6 +123,22 @@
                 } else {
                     alert('The File APIs are not fully supported in this browser.');
                 }
+
+                $('#timeAxisFontSize').on('change', onTimeAxisFontSizeChange);
+                $('#locationCaptionFontSize').on('change', onLocationCaptionFontSizeChange);
+
+            }
+
+            function onLocationCaptionFontSizeChange(evt)
+            { console.log(Number(this.value));
+                $('.yaxis text, .caption text').css('font-size', Number(this.value) + 'px');
+            }
+
+            function onTimeAxisFontSizeChange(evt)
+            {
+                console.log(Number(this.value));
+                
+                $('.xaxis text, .axis text').css('font-size', Number(this.value) + 'px');
             }
 
             $(function() {
@@ -154,6 +170,17 @@
                 <br />
 
             </div>
+        </div>
+        <div>
+            <label for="timeAxisFontSize" > Tamaño de fuente de las marcas de tiempo: </label>
+            <input type="number" name="timeAxisFontSize" id="timeAxisFontSize" min="0" max="100" step="1" value="12"/>
+            <br />
+
+            <label for="locationCaptionFontSize" > Tamaño de fuente de las localizaciones: </label>
+            <input type="number" name="locationCaptionFontSize" id="locationCaptionFontSize" min="0" max="100" step="1" value="12"/>
+
+
+
         </div>
 
         <div id ="leyenda">
